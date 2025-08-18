@@ -3,11 +3,263 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-theme-bg: var(--background-color);
+  --color-theme-text: var(--text-color);
+  --color-theme-accent: var(--accent-color);
+  --color-theme-accent-text: var(--accent-text-color);
+  --color-theme-secondary-bg: var(--secondary-background-color);
+  --color-theme-secondary-text: var(--secondary-text-color);
+  --color-theme-border: var(--border-color);
+  --color-theme-muted: var(--muted-text-color);
+  --color-theme-highlight: var(--highlight-color);
+  --color-theme-highlight-text: var(--highlight-text-color);
+  --color-theme-success: var(--success-color);
+  --color-theme-warning: var(--warning-color);
+  --color-theme-error: var(--error-color);
+  --color-theme-info: var(--info-color);
+}
+
+@layer base {
+
+  /* Custom theme styles */
+  /* Ruby Midnight */
+  [data-theme="ruby"] {
+    /* Primary Colors */
+    --background-color: oklch(8.5% 0.02 0);
+    /* #0D0D0D - Deep black base */
+    --text-color: oklch(92% 0.015 25);
+    /* #F0E6E1 - Warm off-white */
+    --accent-color: oklch(45% 0.18 15);
+    /* #B22222 - Bold ruby red */
+    --accent-text-color: oklch(95% 0.01 45);
+    /* #F5F2E8 - Cream for contrast on red */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(12% 0.08 15);
+    /* #1A0A0A - Dark red-tinted black */
+    --secondary-text-color: oklch(88% 0.02 35);
+    /* #E8D5C4 - Warm light text */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(25% 0.12 15);
+    /* #4A1A1A - Muted ruby border */
+    --muted-text-color: oklch(65% 0.04 35);
+    /* #A18B7A - Warm muted text */
+    --highlight-color: oklch(75% 0.12 75);
+    /* #D4AF37 - Golden highlight */
+    --highlight-text-color: oklch(15% 0.02 75);
+    /* #2A1F0A - Dark text on gold */
+
+    /* Status Colors (optional for blog features) */
+    --success-color: oklch(55% 0.15 140);
+    /* #228B22 - Forest green */
+    --warning-color: oklch(70% 0.18 65);
+    /* #DAA520 - Goldenrod */
+    --error-color: oklch(50% 0.20 25);
+    /* #DC143C - Crimson */
+    --info-color: oklch(60% 0.15 250);
+    /* #4682B4 - Steel blue */
+  }
+
+  /* Terracotta Ember */
+  [data-theme="ember"] {
+    /* Primary Colors */
+    --background-color: oklch(15% 0.03 25);
+    /* #2B1A17 - Deep charcoal with warm undertones */
+    --text-color: oklch(88% 0.02 40);
+    /* #E6D5C8 - Warm cream text */
+    --accent-color: oklch(52% 0.15 35);
+    /* #B85450 - Burnt terracotta red */
+    --accent-text-color: oklch(92% 0.01 50);
+    /* #F0E8E0 - Light cream on accent */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(22% 0.05 30);
+    /* #3D2A24 - Warmer charcoal */
+    --secondary-text-color: oklch(85% 0.03 45);
+    /* #DBC7B5 - Soft warm text */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(35% 0.08 32);
+    /* #5C3E36 - Muted ember border */
+    --muted-text-color: oklch(62% 0.04 38);
+    /* #9A7D70 - Dusty terracotta muted */
+    --highlight-color: oklch(68% 0.12 45);
+    /* #C4956B - Glowing amber highlight */
+    --highlight-text-color: oklch(18% 0.02 30);
+    /* #2D1E18 - Dark text on glow */
+
+    /* Status Colors */
+    --success-color: oklch(58% 0.12 120);
+    /* #6B8E4A - Desert sage green */
+    --warning-color: oklch(72% 0.15 55);
+    /* #D49C3D - Desert gold */
+    --error-color: oklch(48% 0.18 20);
+    /* #A23B2A - Deep ember red */
+    --info-color: oklch(55% 0.10 220);
+    /* #5C7A8A - Desert sky blue */
+  }
+
+  /* Midnight Moss */
+  [data-theme="moss"] {
+    /* Primary Colors */
+    --background-color: oklch(12% 0.04 150);
+    /* #0F1A0F - Deep forest black-green */
+    --text-color: oklch(90% 0.02 120);
+    /* #E8F0E0 - Soft pale green-white */
+    --accent-color: oklch(48% 0.12 135);
+    /* #4A7C59 - Rich moss green */
+    --accent-text-color: oklch(94% 0.01 100);
+    /* #F2F5ED - Light cream on accent */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(18% 0.06 140);
+    /* #1A2B1A - Dark forest green */
+    --secondary-text-color: oklch(86% 0.03 130);
+    /* #D5E3CC - Muted sage text */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(32% 0.08 145);
+    /* #3A5A3F - Forest border */
+    --muted-text-color: oklch(60% 0.05 135);
+    /* #7A9B7F - Weathered moss muted */
+    --highlight-color: oklch(70% 0.15 70);
+    /* #C4A853 - Warm amber highlight */
+    --highlight-text-color: oklch(16% 0.02 150);
+    /* #1C2A1C - Dark forest on amber */
+
+    /* Status Colors */
+    --success-color: oklch(55% 0.15 140);
+    /* #5A8A5A - Forest green success */
+    --warning-color: oklch(72% 0.18 75);
+    /* #D4A853 - Amber warning */
+    --error-color: oklch(50% 0.16 25);
+    /* #A65B47 - Rustic red-brown error */
+    --info-color: oklch(58% 0.12 200);
+    /* #5C8FA6 - Misty blue info */
+  }
+
+  [data-theme="breeze"] {
+    /* Primary Colors */
+    --background-color: oklch(96% 0.02 220);
+    /* #F0F8FF - Soft azure white */
+    --text-color: oklch(20% 0.03 210);
+    /* #2A3B47 - Deep ocean blue-gray */
+    --accent-color: oklch(58% 0.12 230);
+    /* #4A90C2 - Serene ocean blue */
+    --accent-text-color: oklch(96% 0.01 200);
+    /* #F5F9FC - Light sea foam on accent */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(92% 0.03 215);
+    /* #E3F2FF - Light sea mist */
+    --secondary-text-color: oklch(25% 0.04 215);
+    /* #334A5C - Deeper ocean text */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(78% 0.05 220);
+    /* #A8C8E6 - Soft wave border */
+    --muted-text-color: oklch(55% 0.04 215);
+    /* #6B8CA3 - Calm sea muted */
+    --highlight-color: oklch(75% 0.10 190);
+    /* #87CEEB - Sky blue highlight */
+    --highlight-text-color: oklch(22% 0.03 220);
+    /* #2D4052 - Deep sea on highlight */
+
+    /* Status Colors */
+    --success-color: oklch(62% 0.12 160);
+    /* #4A9B8E - Teal success */
+    --warning-color: oklch(75% 0.15 60);
+    /* #E6B85C - Sandy warning */
+    --error-color: oklch(55% 0.14 15);
+    /* #B85C5C - Coral error */
+    --info-color: oklch(65% 0.10 240);
+    /* #7BA3D4 - Ocean info */
+  }
+
+  [data-theme="honey"] {
+    /* Primary Colors */
+    --background-color: oklch(96% 0.015 55);
+    /* #FDFBF7 - Soft cream base */
+    --text-color: oklch(25% 0.02 45);
+    /* #3D362E - Warm dark brown */
+    --accent-color: oklch(65% 0.12 65);
+    /* #D4A853 - Rich honey gold */
+    --accent-text-color: oklch(20% 0.02 50);
+    /* #342B1F - Dark warm text on honey */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(92% 0.02 60);
+    /* #F5F0E8 - Warm cream secondary */
+    --secondary-text-color: oklch(30% 0.03 50);
+    /* #4A4034 - Medium warm brown */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(80% 0.04 58);
+    /* #D6C4A8 - Soft honey border */
+    --muted-text-color: oklch(58% 0.03 55);
+    /* #968673 - Muted warm gray */
+    --highlight-color: oklch(72% 0.08 285);
+    /* #B399D4 - Playful lavender highlight */
+    --highlight-text-color: oklch(95% 0.01 280);
+    /* #FAF8FC - Light cream on lavender */
+
+    /* Status Colors */
+    --success-color: oklch(62% 0.10 140);
+    /* #6B9B6B - Soft sage success */
+    --warning-color: oklch(68% 0.15 70);
+    /* #CC9933 - Amber warning */
+    --error-color: oklch(58% 0.12 20);
+    /* #B8735C - Warm terracotta error */
+    --info-color: oklch(65% 0.08 270);
+    /* #9580B8 - Muted purple info */
+  }
+
+  [data-theme="mocha"] {
+    /* Primary Colors */
+    --background-color: oklch(92% 0.02 40);
+    /* #F2EDE6 - Creamy coffee foam */
+    --text-color: oklch(18% 0.03 25);
+    /* #2B1F18 - Dark espresso brown */
+    --accent-color: oklch(38% 0.06 30);
+    /* #6B4E3D - Rich mocha brown */
+    --accent-text-color: oklch(94% 0.01 45);
+    /* #F5F1EA - Light cream on accent */
+
+    /* Secondary Colors */
+    --secondary-background-color: oklch(88% 0.03 35);
+    /* #E6D7C8 - Warm latte secondary */
+    --secondary-text-color: oklch(22% 0.04 28);
+    /* #332419 - Deep coffee text */
+
+    /* Interactive & Utility Colors */
+    --border-color: oklch(70% 0.04 32);
+    /* #B8A085 - Soft caramel border */
+    --muted-text-color: oklch(52% 0.03 30);
+    /* #7A6B58 - Muted coffee muted */
+    --highlight-color: oklch(65% 0.08 50);
+    /* #B8956B - Golden caramel highlight */
+    --highlight-text-color: oklch(20% 0.02 35);
+    /* #2F241A - Dark cocoa on highlight */
+
+    /* Status Colors */
+    --success-color: oklch(55% 0.10 120);
+    /* #6B8A4A - Earthy green success */
+    --warning-color: oklch(68% 0.12 55);
+    /* #BFA053 - Caramel warning */
+    --error-color: oklch(48% 0.12 15);
+    /* #A6553D - Cinnamon error */
+    --info-color: oklch(58% 0.08 210);
+    /* #6B8AA6 - Muted blue-gray info */
+  }
+}
+
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -78,45 +330,19 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border transition-colors duration-300;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-theme-bg text-theme-text;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+}
+
+@layer utilities {
+  .theme-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
