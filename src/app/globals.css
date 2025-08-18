@@ -18,6 +18,12 @@
   --color-theme-warning: var(--warning-color);
   --color-theme-error: var(--error-color);
   --color-theme-info: var(--info-color);
+
+  /* Custom fonts variables */
+  --font-code: "Fira Code", monospace;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-subheading: "Merriweather", serif;
 }
 
 @layer base {
