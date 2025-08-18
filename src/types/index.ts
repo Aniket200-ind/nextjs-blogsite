@@ -1,11 +1,13 @@
 //! File: src/types/index.ts
 
-//* Types support for theme
+export interface Theme {
+  id: string;
+  name: string;
+  description: string;
+}
 
-export type Theme = "ruby" | "ember" | "moss" | "breeze" | "honey" | "mocha"
 
 export interface ThemeContextType {
-    theme: Theme;
-    setTheme: (theme: Theme) => void;
-    themes: Array<{id: Theme; name: string; description: string}>
+  currentTheme: Theme;
+  setTheme: (theme: Theme) => void;
 }
