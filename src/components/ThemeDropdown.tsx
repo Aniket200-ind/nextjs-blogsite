@@ -39,7 +39,7 @@ export function ThemeDropdown() {
           <DropdownMenuItem
             key={theme.id}
             onClick={() => setTheme(theme)}
-            className="cursor-pointer text-theme-secondary-text hover:bg-theme-accent hover:text-theme-accent-text"
+            className="cursor-pointer text-theme-secondary-text hover:bg-theme-accent transition-all hover:text-theme-accent-text"
           >
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col">
