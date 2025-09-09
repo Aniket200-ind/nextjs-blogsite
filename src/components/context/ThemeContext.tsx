@@ -11,6 +11,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [currentTheme, setCurrentTheme] = useState<Theme>(themes[3]); // Default to Ocean Breeze
   const [mounted, setMounted] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
     setMounted(true);
@@ -27,6 +28,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setCurrentTheme(theme);
     localStorage.setItem("blog-theme", theme.id);
     document.documentElement.setAttribute("data-theme", theme.id);
+    setIsAnimating(true)
+
+    // Create a magical ripple effect from the theme selector
+    const ripple = document.createElement("div")
+    ripple.className = "theme-ripple"
+    document.body.appendChild(ripple)
+
+    // Trigger the ripple animation
+    setTimeout(() => {
+      document.documentElement.setAttribute("data-theme", theme.id)
+      setCurrentTheme(theme)
+      localStorage.setItem("theme", theme.id)
+    }, 300)
+
+    // Clean up
+    setTimeout(() => {
+      document.body.removeChild(ripple)
+      setIsAnimating(false)
+    }, 1000)
   };
 
   useEffect(() => {
