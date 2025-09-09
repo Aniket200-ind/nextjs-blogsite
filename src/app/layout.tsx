@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code, Montserrat, Roboto, Merriweather } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/context/ThemeContext";
+import { Navbar } from "@/components/Navbar";
 
 const firaCode = Fira_Code({
   variable: "--font-fira-code",
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${firaCode.variable} ${montserrat.variable} ${merriweather.variable} ${roboto.variable} antialiased`}
       >
         <ThemeProvider>
+          <Navbar />
           <main className="min-h-screen bg-theme-bg">
             {children}
           </main>
