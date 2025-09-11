@@ -35,7 +35,9 @@ export function Navbar() {
                 D
               </span>
             </div>
-            <span className="text-xl font-bold text-theme-text font-montserrat">DevPulse</span>
+            <span className="text-xl font-bold text-theme-text font-montserrat">
+              DevPulse
+            </span>
           </Link>
 
           {/* Navigation Links */}
@@ -47,8 +49,8 @@ export function Navbar() {
                 className={cn(
                   "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 font-body",
                   isActive(item.href)
-                      ? "bg-theme-accent text-theme-accent-text shadow-lg"
-                      : "text-theme-text hover:text-theme-accent hover:bg-theme-secondary-bg"
+                    ? "bg-theme-accent text-theme-accent-text shadow-lg"
+                    : "text-theme-text hover:text-theme-accent hover:bg-theme-secondary-bg"
                 )}
               >
                 {item.name}
@@ -56,10 +58,8 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Theme Selector & Mobile Menu */}
           <div className="flex items-center space-x-4">
             <ThemeDropdown />
-
             {/* Mobile Navigation */}
             <div className="md:hidden">
               <Button
@@ -100,8 +100,8 @@ export function Navbar() {
                 className={cn(
                   "block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 font-body",
                   isActive(item.href)
-                        ? "bg-theme-accent text-theme-accent-text"
-                        : "text-theme-text hover:text-theme-accent hover:bg-theme-secondary-bg"
+                    ? "bg-theme-accent text-theme-accent-text"
+                    : "text-theme-text hover:text-theme-accent hover:bg-theme-secondary-bg"
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
