@@ -12,21 +12,21 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const renderTitle = (title: string) => {
-    const words = title.split(' ');
-    if (words.length === 1) return title;
-    
-    const lastWord = words.pop()!;
-    const restOfTitle = words.join(' ');
-    
-    return (
-      <h1 className="text-4xl md:text-5xl font-bold text-theme-text mb-4 font-montserrat">
-        {restOfTitle}{' '}
-        <span className="bg-gradient-to-r from-theme-accent to-theme-highlight bg-clip-text text-transparent">
-          {lastWord}
-        </span>
-      </h1>
-    );
-  };
+  const words = title.split(" ");
+  if (words.length === 1) return title;
+
+  const lastWord = words.pop()!;
+  const restOfTitle = words.join(" ");
+
+  return (
+    <h1 className="text-4xl md:text-5xl font-bold text-theme-text mb-4 font-montserrat">
+      {restOfTitle}{" "}
+      <span className="bg-gradient-to-r from-theme-accent to-theme-highlight bg-clip-text text-transparent">
+        {lastWord}
+      </span>
+    </h1>
+  );
+};
 
 interface PageHeaderProps {
   title: string;
@@ -53,12 +53,8 @@ export function PageHeader({
     <div className="bg-gradient-to-br from-theme-bg via-theme-secondary-bg to-theme-bg border-b border-theme-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center max-w-3xl mx-auto">
-          {icon && (
-            <div className="mb-6">
-              {icon}
-            </div>
-          )}
-            {renderTitle(title)}
+          {icon && <div className="mb-6">{icon}</div>}
+          {renderTitle(title)}
           <p className="text-lg text-theme-muted mb-8 max-w-2xl mx-auto font-subheading">
             {description}
           </p>
