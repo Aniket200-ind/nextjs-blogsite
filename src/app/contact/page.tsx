@@ -14,13 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
-
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+import { ContactFormData } from "@/lib/schema/contact";
 
 interface FormStatus {
   type: "idle" | "loading" | "success" | "error";
@@ -28,7 +22,7 @@ interface FormStatus {
 }
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     subject: "",
@@ -63,13 +57,13 @@ export default function ContactPage() {
         });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        throw new Error("Failed to send message");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
       }
     } catch (error) {
       setStatus({
         type: "error",
-        message:
-          "Sorry, there was an error sending your message. Please try again.",
+        message: error instanceof Error ? error.message : "Sorry, there was an error sending your message. Please try again.",
       });
     }
   };
