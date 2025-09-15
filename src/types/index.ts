@@ -9,6 +9,5 @@ export interface Theme {
 export interface Tag {
   id: number
   name: string
-  bg_color_hex: string
-  text_color_hex: string
+  short_summary: string
 }
