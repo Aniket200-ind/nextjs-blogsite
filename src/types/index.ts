@@ -6,8 +6,9 @@ export interface Theme {
   description: string;
 }
 
-
-export interface ThemeContextType {
-  currentTheme: Theme;
-  setTheme: (theme: Theme) => void;
+export interface Tag {
+  id: number
+  name: string
+  bg_color_hex: string
+  text_color_hex: string
 }
