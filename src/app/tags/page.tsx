@@ -1,41 +1,43 @@
 //! File: src/app/tags/page.tsx
 
-"use client"
+"use client";
 import { PageHeader } from "@/components/PageHeader";
 import { Hash } from "lucide-react";
-import { useState, useEffect } from "react"
-import { TagCard } from "@/components/TagCard"
-import { LoadingSpinner } from "@/components/LoadingSpinner"
-import { fetchTags } from "@/lib/api"
-import type { Tag } from "@/types"
+import { useState, useEffect } from "react";
+import { TagCard } from "@/components/TagCard";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { fetchTags } from "@/lib/api";
+import type { Tag } from "@/types";
 import { ScrollToTopButton } from "@/components/ScrollToTop";
 
 
 export default function TagsListPage() {
-  const [tags, setTags] = useState<Tag[]>([])
-  const [loading, setLoading] = useState(true)
-  const [searchQuery, setSearchQuery] = useState("")
+  const [tags, setTags] = useState<Tag[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const loadTags = async () => {
       try {
-        const data = await fetchTags()
-        setTags(data)
+        const data = await fetchTags();
+        setTags(data);
       } catch (error) {
-        console.error("Failed to fetch tags:", error)
+        console.error("Failed to fetch tags:", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    loadTags()
-  }, [])
+    };
+    loadTags();
+  }, []);
 
-  const filteredTags = tags.filter((tag) => tag.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredTags = tags.filter((tag) =>
+    tag.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleSearch = (query: string) => {
-    console.log("Search query:", query)
-    setSearchQuery(query)
-  }
+    console.log("Search query:", query);
+    setSearchQuery(query);
+  };
 
   return (
     <section>
@@ -59,8 +61,12 @@ export default function TagsListPage() {
           <>
             {filteredTags.length === 0 ? (
               <div className="text-center py-12">
-                <h3 className="text-lg font-medium text-theme-text mb-2">No tags found</h3>
-                <p className="text-theme-muted">Try adjusting your search criteria.</p>
+                <h3 className="text-lg font-medium text-theme-text mb-2">
+                  No tags found
+                </h3>
+                <p className="text-theme-muted">
+                  Try adjusting your search criteria.
+                </p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
