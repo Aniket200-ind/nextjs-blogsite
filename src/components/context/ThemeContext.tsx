@@ -4,12 +4,17 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { themes } from "@/lib/themes";
-import { Theme, ThemeContextType } from "@/types";
+import { Theme } from "@/types";
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+type ThemeContextType = {
+  currentTheme: Theme
+  setTheme: (theme: Theme) => void
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [currentTheme, setCurrentTheme] = useState<Theme>(themes[3]); // Default to Ocean Breeze
+  const [currentTheme, setCurrentTheme] = useState<Theme>(themes[3]);
   const [mounted, setMounted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false)
 
