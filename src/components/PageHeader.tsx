@@ -1,7 +1,8 @@
 //! File: src/components/PageHeader.tsx
 "use client";
 
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Check } from "lucide-react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +18,6 @@ const renderTitle = (title: string) => {
 
   const lastWord = words.pop()!;
   const restOfTitle = words.join(" ");
-
   return (
     <h1 className="text-4xl md:text-5xl font-bold text-theme-text mb-4 font-montserrat">
       {restOfTitle}{" "}
@@ -49,6 +49,12 @@ export function PageHeader({
   searchPlaceholder = "Search posts...",
   icon,
 }: PageHeaderProps) {
+  const [selectedFilter, setSelectedFilter] = useState("latest");
+
+  const handleFilterSelect = (filter: string) => {
+    setSelectedFilter(filter);
+    onFilter?.(filter);
+  };
   return (
     <div className="bg-gradient-to-br from-theme-bg via-theme-secondary-bg to-theme-bg border-b border-theme-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -86,22 +92,31 @@ export function PageHeader({
                     className="bg-theme-secondary-bg border-theme-border"
                   >
                     <DropdownMenuItem
-                      onClick={() => onFilter?.("latest")}
-                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer"
+                      onClick={() => handleFilterSelect("latest")}
+                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer flex items-center justify-between"
                     >
                       Latest
+                      {selectedFilter === "latest" && (
+                        <Check className="h-4 w-4" />
+                      )}
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                      onClick={() => onFilter?.("relevant")}
-                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer"
+                      onClick={() => handleFilterSelect("relevant")}
+                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer flex items-center justify-between"
                     >
                       Most Relevant
+                      {selectedFilter === "relevant" && (
+                        <Check className="h-4 w-4" />
+                      )}
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                      onClick={() => onFilter?.("popular")}
-                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer"
+                      onClick={() => handleFilterSelect("popular")}
+                      className="text-theme-text hover:bg-theme-accent hover:text-theme-accent-text cursor-pointer flex items-center justify-between"
                     >
                       Most Popular
+                      {selectedFilter === "popular" && (
+                        <Check className="h-4 w-4" />
+                      )}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
