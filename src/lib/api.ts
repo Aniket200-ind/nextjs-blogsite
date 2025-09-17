@@ -19,6 +19,15 @@ export async function fetchBlogPosts(page = 1, tag?: string, query?: string) {
   return response.json();
 }
 
+export async function fetchBlogPost(id: string) {
+  const response = await fetch(`${BASE_API_URL}/articles/${id}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch blog post");
+  }
+
+  return response.json();
+}
+
 export async function fetchTags() {
   const response = await fetch(`${BASE_API_URL}/tags?per_page=84`);
   if (!response.ok) {
